@@ -13,7 +13,11 @@
 #
 
 class users (
-  $users
+  $users,
+  $groups,
 ) {
+  group { $groups:
+    ensure => present,
+  }
   create_resources('users::user', $users)
 }
